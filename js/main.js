@@ -1,8 +1,8 @@
 let account = {
-    "login": "paihitetty",
+    "login": "account",
     "password": "123",
-    "name": "Pavlo",
-    "surname": "Romanenko",
+    "name": "Bob",
+    "surname": "Bobovich",
     "email": "paihitetty444@gmail.com"
 }
 let login = document.getElementById("login");
@@ -23,9 +23,15 @@ let loggedIn = document.getElementsByClassName("logged-in");
 let modifier = document.getElementById("modifier");
 let modification = document.getElementsByClassName("modification");
 let logout = document.getElementById("logout");
+let creation = document.getElementsByClassName("creation-account");
+let creationButton = document.getElementById("creation-button");
+let creationCompteNavBar = document.getElementById("creationCompteNavBar");
+let accueil = document.getElementById("login_accueil");
+let isLoggedIn = false;
 
 loggedIn[0].style.display = "none";
 modification[0].style.display = "none";
+creation[0].style.display = "none";
 error.style.display = "none";
 button.disabled = true;
 
@@ -45,12 +51,26 @@ password.oninput = function () {
     }
 }
 
+accueil.onclick = function () {
+    if (isLoggedIn) {
+        notLoggedIn[0].style.display = "none";
+        loggedIn[0].style.display = "block";
+        creationCompteNavBar.style.display = "none";
+    } else {
+        loggedIn[0].style.display = "none";
+        modification[0].style.display = "none";
+        notLoggedIn[0].style.display = "block";
+    }
+}
+
 button.onclick = function () {
     if (login.value !== account.login || password.value !== account.password) {
         error.style.display = "block";
     } else {
+        isLoggedIn = true;
         notLoggedIn[0].style.display = "none";
         loggedIn[0].style.display = "block";
+        creationCompteNavBar.style.display = "none";
         welcome.innerText = "Welcome " + account.name + " " + account.surname;
         loginAcceuil.innerText = account.login;
         $(".dropdown-trigger").dropdown({coverTrigger: false});
@@ -58,10 +78,12 @@ button.onclick = function () {
 }
 
 logout.onclick = function () {
+    isLoggedIn = false;
     loggedIn[0].style.display = "none";
     modification[0].style.display = "none";
     notLoggedIn[0].style.display = "block";
     loginAcceuil.innerText = "Acceuil";
+    creationCompteNavBar.style.display = "block";
     login.value = "";
     password.value = "";
     button.className = "waves-effect waves-light btn disabled";
@@ -73,7 +95,6 @@ modifier.onclick = function () {
     loggedIn[0].style.display = "none";
     notLoggedIn[0].style.display = "none";
     modification[0].style.display = "block";
-    buttonModifier.className = "waves-effect waves-light btn disabled";
     newPassword.value = "";
     newLogin.value = account.login;
     email.value = account.email;
@@ -81,9 +102,18 @@ modifier.onclick = function () {
     surname.value = account.surname;
 }
 
+creationButton.onclick = function () {
+    creation[0].style.display = "block";
+    notLoggedIn[0].style.display = "none";
+}
+
+creationCompteNavBar.onclick = function () {
+    creation[0].style.display = "block";
+    notLoggedIn[0].style.display = "none";
+}
 
 newLogin.oninput = function () {
-    if (newLogin.value !== "" && newPassword.value !== "" && name.value !== "" && surname.value !== "" && email.value !== "") {
+    if (newLogin.value !== "" && name.value !== "" && surname.value !== "" && email.value !== "") {
         buttonModifier.className = "waves-effect waves-light btn";
     } else {
         buttonModifier.className = "waves-effect waves-light btn disabled";
@@ -91,7 +121,7 @@ newLogin.oninput = function () {
 }
 
 newPassword.oninput = function () {
-    if (newLogin.value !== "" && newPassword.value !== "" && name.value !== "" && surname.value !== "" && email.value !== "") {
+    if (newLogin.value !== "" && name.value !== "" && surname.value !== "" && email.value !== "") {
         buttonModifier.className = "waves-effect waves-light btn";
     } else {
         buttonModifier.className = "waves-effect waves-light btn disabled";
@@ -99,7 +129,7 @@ newPassword.oninput = function () {
 }
 
 name.oninput = function () {
-    if (newLogin.value !== "" && newPassword.value !== "" && name.value !== "" && surname.value !== "" && email.value !== "") {
+    if (newLogin.value !== "" && name.value !== "" && surname.value !== "" && email.value !== "") {
         buttonModifier.className = "waves-effect waves-light btn";
     } else {
         buttonModifier.className = "waves-effect waves-light btn disabled";
@@ -107,7 +137,7 @@ name.oninput = function () {
 }
 
 surname.oninput = function () {
-    if (newLogin.value !== "" && newPassword.value !== "" && name.value !== "" && surname.value !== "" && email.value !== "") {
+    if (newLogin.value !== "" && name.value !== "" && surname.value !== "" && email.value !== "") {
         buttonModifier.className = "waves-effect waves-light btn";
     } else {
         buttonModifier.className = "waves-effect waves-light btn disabled";
@@ -115,7 +145,7 @@ surname.oninput = function () {
 }
 
 email.oninput = function () {
-    if (newLogin.value !== "" && newPassword.value !== "" && name.value !== "" && surname.value !== "" && email.value !== "") {
+    if (newLogin.value !== "" && name.value !== "" && surname.value !== "" && email.value !== "") {
         buttonModifier.className = "waves-effect waves-light btn";
     } else {
         buttonModifier.className = "waves-effect waves-light btn disabled";
@@ -127,8 +157,9 @@ buttonModifier.onclick = function () {
     account.surname = surname.value;
     account.email = email.value;
     account.login = newLogin.value;
-    account.password = newPassword.value;
-
+    if (newPassword.value !== "") {
+        account.password = newPassword.value;
+    }
     loginAcceuil.innerText = account.login;
     welcome.innerText = "Welcome " + account.name + " " + account.surname;
 

@@ -19,7 +19,7 @@
             <ul class="right hide-on-med-and-down">
                 <li><a class="dropdown-trigger" data-target="dropdownAccount" href="#" id="login_accueil">Accueil</a></li>
                 <li><a href="#">Infos</a></li>
-                <li><a href="#">Creer un compte</a></li>
+                <li><a href="#" id="creationCompteNavBar">Creer un compte</a></li>
             </ul>
         </div>
     </nav>
@@ -36,7 +36,7 @@
                                 <span class="card-title">Welcome</span>
                             </div>
                             <div class="card-action">
-                                <a href="#">Creer un compte</a>
+                                <a id="creation-button" href="#">Creer un compte</a>
                             </div>
                         </div>
                     </div>
@@ -52,13 +52,13 @@
                             <div class="col s12">
                                 <div class="col s6">
                                     <div class="input-field">
-                                        <input type="text" id="login" placeholder="Entrez votre login">
+                                        <input type="text" id="login" placeholder="Entrez votre login" class="validate">
                                         <label for="login">Login</label>
                                     </div>
                                 </div>
                                 <div class="col s6">
                                     <div class="input-field">
-                                        <input type="password" id="password" placeholder="Entrez votre mot de passe">
+                                        <input type="password" id="password" placeholder="Entrez votre mot de passe" class="validate">
                                         <label for="password">Password</label>
                                     </div>
                                 </div>
@@ -138,12 +138,83 @@
                     </div>
                     <div class="row">
                         <div class="center-align">
-                            <a class="waves-effect waves-light btn disabled" id="buttonApply">Valider le formulaire</a>
+                            <a class="waves-effect waves-light btn" id="buttonApply">Valider le formulaire</a>
                             <a class="waves-effect waves-light btn" id="buttonReturn">Retour</a>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="creation-account row center-align">
+            <div class="col s3"></div>
+            <div class="col s6">
+                <div class="row card">
+                    <h4>Creation d'un compte</h4>
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="col s6">
+                                <div class="input-field">
+                                    <input type="text" id="surnameReg" placeholder="Entrez nom">
+                                    <label for="surnameUser"></label>
+                                </div>
+                            </div>
+                            <div class="col s6">
+                                <div class="input-field">
+                                    <input type="text" id="nameReg" placeholder="Entrez prenom">
+                                    <label for="nameUser"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="col s12">
+                                <div class="input-field">
+                                    <input type="email" id="emailReg" placeholder="Entrez votre email">
+                                    <label for="emailUser"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="col s12">
+                                <div class="input-field">
+                                    <input type="text" id="loginReg" placeholder="Entrez login">
+                                    <label for="loginUser"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="col s12">
+                                <div class="input-field">
+                                    <input type="password" id="passwordReg" placeholder="Entrez mot de passe">
+                                    <label for="passwordUser"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="col s12">
+                                <div class="input-field">
+                                    <input type="password" id="passwordRegConfirm" placeholder="Confirmer mot de passe">
+                                    <label for="passwordUser"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row green-text" id="motDePassConfirm">
+                        Mot de pass confirmé
+                    </div>
+                    <div class="row">
+                        <div class="center-align">
+                            <a class="waves-effect waves-light btn disabled" id="buttonApplyReg">Valider le formulaire</a>
+                        </div>
+                    </div>
+                </div>
         </div>
         <div class="col s3"></div>
     </div>
