@@ -18,7 +18,7 @@
         <div class="nav-wrapper">
             <ul class="right hide-on-med-and-down">
                 <li><a class="dropdown-trigger" data-target="dropdownAccount" href="#" id="login_accueil">Accueil</a></li>
-                <li><a href="#">Infos</a></li>
+                <li><a href="#" id="accountsList">Infos</a></li>
                 <li><a href="#" id="creationCompteNavBar">Creer un compte</a></li>
             </ul>
         </div>
@@ -116,6 +116,8 @@
                             </div>
                         </div>
                     </div>
+                    <div class="confirmModification row center-align red-text">
+                    </div>
                     <div class="row">
                         <div class="col s12">
                             <div class="col s12">
@@ -125,6 +127,8 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="confirmModification row center-align red-text">
                     </div>
                     <div class="row">
                         <div class="col s12">
@@ -136,9 +140,11 @@
                             </div>
                         </div>
                     </div>
+                    <div class="confirmModification row center-align red-text">
+                    </div>
                     <div class="row">
                         <div class="center-align">
-                            <a class="waves-effect waves-light btn" id="buttonApply">Valider le formulaire</a>
+                            <a class="waves-effect waves-light btn" id="buttonApply" href="index.html">Valider le formulaire</a>
                             <a class="waves-effect waves-light btn" id="buttonReturn">Retour</a>
                         </div>
                     </div>
@@ -176,6 +182,9 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row green-text" id="confirmEmailMessage">
+                        Mot de pass confirmé
+                    </div>
                     <div class="row">
                         <div class="col s12">
                             <div class="col s12">
@@ -185,6 +194,8 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="row green-text" id="confirmLoginMessage">
                     </div>
                     <div class="row">
                         <div class="col s12">
@@ -206,17 +217,42 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row green-text" id="motDePassConfirm">
+                    <div class="row green-text" id="confirmPasswordMessage">
                         Mot de pass confirmé
                     </div>
                     <div class="row">
                         <div class="center-align">
-                            <a class="waves-effect waves-light btn disabled" id="buttonApplyReg">Valider le formulaire</a>
+                            <a class="waves-effect waves-light btn disabled" id="buttonApplyReg" href="index.html">Valider le formulaire</a>
                         </div>
                     </div>
                 </div>
         </div>
         <div class="col s3"></div>
+    </div>
+        <div class="row center-align" id="list">
+            <h2>Gerer les comptes</h2>
+            <div class="row"></div>
+            <div class="col s12">
+                <div class="col s3"></div>
+                <div class="input-field col s6">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Login</th>
+                            <th>Name</th>
+                            <th>Surname</th>
+                            <th>Supprimer</th>
+                        </tr>
+                        </thead>
+
+                        <tbody id="comptes">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col s3"></div>
+            </div>
+        </div>
+        <h3 class="row center-align" id="comptesMessage"></h3>
     </div>
 </main>
 <footer class="page-footer">
